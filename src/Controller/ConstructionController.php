@@ -229,12 +229,12 @@ class ConstructionController extends AbstractController
                 $errors[] = '`location` is required';
             }
             if (!isset($data->stage) || empty($data->stage) || (!empty($data->stage) && !in_array($data->stage, [Stages::CONCEPT->value, Stages::CONST->value, Stages::DESIGN->value, Stages::PRECONST->value]))) {
-                $errors[] = '`stage` is required and must be a valid stage';
+                $errors[] = '`stage` is required and must be a valid stage, such as "Concept", "Design & Documentation", "Construction" or "Pre-Construction"';
             }
             if (!isset($data->category) || empty($data->category) || (!empty($data->category) && !in_array($data->category, [Categories::EDUCATION->value, Categories::HEALTH->value, Categories::OFFICE->value, Categories::OTHERS->value]))) {
-                $errors[] = '`category` is required and must be a valid category';
+                $errors[] = '`category` is required and must be a valid category, such as "Education", "Health", "Office" or "Others"';
             } else if ($data->category === Categories::OTHERS->value && empty($data->otherCategory)) {
-                $errors[] = '`otherCategory` is required when category is "OTHERS"';
+                $errors[] = '`otherCategory` is required when category is "Others"';
             }
             if (!isset($data->startDate) || empty($data->startDate) || !DateTime::createFromFormat('Y-m-d', $data->startDate)) {
                 $errors[] = '`startDate` is required and must be a valid date in Y-m-d format';

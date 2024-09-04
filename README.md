@@ -18,6 +18,8 @@ This project is created using **[Symfony Framework](https://symfony.com)**, and 
 
    ```bash
    git clone https://github.com/arbhapr/bci-technical
+   cd bci-technical
+   composer install
    ```
    
 2. Create a new database using PostgreSQL in your favorite DBMS, with name ```bci-technical```.
