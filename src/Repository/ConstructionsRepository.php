@@ -25,7 +25,8 @@ class ConstructionsRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('c');
         if (!empty($filter)) {
-            $query->andWhere("c.name LIKE :filter OR c.location LIKE :filter OR c.stage LIKE :filter OR c.category LIKE :filter");
+            $filter = strtolower($filter);
+            $query->andWhere("LOWER(c.name) LIKE :filter OR LOWER(c.location) LIKE :filter OR LOWER(c.stage) LIKE :filter OR LOWER(c.category) LIKE :filter");
             $query->setParameter("filter", "%".$filter."%");
         }
         return $query->getQuery()->getResult();

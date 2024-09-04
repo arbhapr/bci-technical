@@ -32,6 +32,31 @@ This project is created using **[Symfony Framework](https://symfony.com)**, and 
 5. Voila, you will see the first page of Symfony by opening **http://127.0.0.1:8000** on default port.
 6. To access the endpoint following the main point of the assignments, you can proceed to this **[Postman Documentation BCI-Technical Test](https://documenter.getpostman.com/view/7480974/2sAXjNXqvv)** documentation.
 
+## For Testing
+1. You need to install the PHPUnit by following this commmand
+   
+   ```bash
+   composer require --dev phpunit/phpunit
+   ```
+   
+2. Create the ```_test``` suffix database for testing environment, and migrate the latest migration
+
+   ```bash
+   php bin/console doctrine:database:create --env=test
+   php bin/console doctrine:migrations:migrate --env=test
+   ```
+3. Run the tests
+
+   ```bash
+   php bin/phpunit
+   ```
+   
+   but if you want partial testing based on the function, you can use
+   
+   ```bash
+   php bin/phpunit --filter <test_name>
+   ```
+
 ## Credits
 1. Myself, **[Arbha Pradana](https://linkedin.com/in/arbhapr)**.
 2. Thanks to **Recruitment Team** of **[BCI-Central](https://www.bcicentral.com/)** to allow me following this challenging technical test.
